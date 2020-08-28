@@ -7,16 +7,19 @@ xters = string.ascii_lowercase+ string.ascii_uppercase + string.punctuation
 
 xters_list = [i for i in xters]
 
-cols = 6
-rows = 6
+cols = 10
+rows = 10
 choosen_xters = []
-
+c = 0
 while len(choosen_xters) != int(rows*cols/2):
     choice = random.choice(xters_list)
     if choice not in choosen_xters:
         choosen_xters.append(choice)
+        c += 1
+        print(c)
 
 def shuffle(lst):
+    print('shuffling...')
     shf = []
     while len(shf) != len(lst):
         rd = random.choice(lst)
@@ -30,9 +33,7 @@ new_outcome = []
 trk_lst = []
 selected = []
 
-lst = list(range(0,4))
-word = 'word'
-new_word = ''
+
 while len(new_outcome) != rows:
     while len(trk_lst) != cols:
         for rd in choosen_xters:
