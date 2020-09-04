@@ -1,5 +1,5 @@
 import  random
-from random import choice
+
 class WOFPlayer:
     def __init__(self, name):
         self.name = name
@@ -27,8 +27,8 @@ class WOFHumanPlayer(WOFPlayer):
 
 class WOFComputerPlayer(WOFPlayer):
     SORTED_FREQUENCIES = 'ZQXJKVBPYGFWMUCLDRHSNIOATE'
-    def __init__(self, difficulty):
-        super().__init__
+    def __init__(self,name, difficulty):
+        WOFPlayer.__init__(self, name)
         self.difficulty = difficulty
 
     def smartCoinFlip(self):
@@ -40,7 +40,7 @@ class WOFComputerPlayer(WOFPlayer):
 
     def getPossibleLetters(self, guessed):
         letters = LETTERS 
-        if self.prizeMoney < VOWEL_COST:
+        if super().prizeMoney < VOWEL_COST:
             for i in VOWELS:
                 if i in letters:
                     letters.replace(i,'')
